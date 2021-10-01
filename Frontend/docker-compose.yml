@@ -1,0 +1,14 @@
+version: "3"
+services:
+   frontend:
+       container_name: ppclothesFE
+       build: 
+          context: .
+       image: frontend
+       ports: 
+          - "80:80"
+
+networks:
+    default:
+       external:
+          name: NETWORK

@@ -1,0 +1,19 @@
+version: '3'
+services:
+  database:
+    container_name: ppclothesDB
+    build: .
+    image: database
+    environment: 
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: flukefriendbest
+      MYSQL_DATABASE: project
+    volumes:
+      - "./script/ppclothesDB.sql:/docker-entrypoint-initdb.d/ppclothesDB.sql"
+    ports:
+      - "3306:3306"
+
+networks:
+    default:
+        external:
+            name: NETWORK
