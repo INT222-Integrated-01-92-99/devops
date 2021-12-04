@@ -6,9 +6,13 @@ services:
           context: .
        image: frontend
        ports: 
-          - "80:80"
-
+          - "8080:80"
+       networks:
+         NETWORK:
+            ipv4_address: 172.21.0.11
 networks:
-    default:
-       external:
-          name: NETWORK
+  default:
+    external:
+       name: NETWORK
+  NETWORK:
+    external: true

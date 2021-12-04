@@ -12,8 +12,12 @@ services:
       - "./script/ppclothesDB.sql:/docker-entrypoint-initdb.d/ppclothesDB.sql"
     ports:
       - "3306:3306"
-
+    networks:
+       NETWORK:
+          ipv4_address: 172.21.0.4
 networks:
-    default:
-        external:
-            name: NETWORK
+  default:
+    external:
+       name: NETWORK
+  NETWORK:
+    external: true
